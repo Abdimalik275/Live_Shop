@@ -11,14 +11,12 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-
   role: {
     type: String,
     enum: ['admin', 'seller', 'buyer'],
     default: 'buyer',
     required: true
   },
-
   storename: { type: String, validate: requiredIfSeller('storename') },
   idNumber: { type: String, validate: requiredIfSeller('idNumber') },
   photoID: { type: String, validate: requiredIfSeller('photoID') },
